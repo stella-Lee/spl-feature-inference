@@ -1,0 +1,26 @@
+# Maven / Java
+target/
+*.class
+
+# IDE
+.project
+.classpath
+.settings/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime outputs
+output/
+!output/.gitkeep
+
+# Local input data
+input/model.xml
+input/assets/
+!input/README.md
+
+# Logs
+*.log
