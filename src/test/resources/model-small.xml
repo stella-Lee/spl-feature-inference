@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<integrationModel>
+    <products>
+        <product id="enterprise" name="Enterprise"/>
+        <product id="home-basic" name="HomeBasic"/>
+        <product id="professional" name="Professional"/>
+    </products>
+    <assets>
+        <asset id="src/main/java/example/App.java" type="java">
+            <file owner="Enterprise" path="/src/main/java/example/App.java"/>
+            <file owner="Professional" path="/src/main/java/example/App.java"/>
+        </asset>
+        <asset id="config/default.properties"
+               type="properties">
+            <file owner="Enterprise" path="/config/default.properties"/>
+            <file owner="HomeBasic" path="/config/default.properties"/>
+        </asset>
+    </assets>
+</integrationModel>

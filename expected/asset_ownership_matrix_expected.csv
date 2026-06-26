@@ -1,0 +1,12 @@
+assetId,type,Enterprise,HomeBasic,HomePremium,Professional,Starter,Ultimate
+asset1,common,1,1,1,1,1,1
+asset2,common,1,1,1,1,1,1
+asset3,common,1,1,1,1,1,1
+asset4,common,1,1,1,1,1,1
+asset5,common,1,1,1,1,1,1
+asset6,common,1,1,1,1,1,1
+asset7,common,1,1,1,1,1,1
+asset8,common,1,1,1,1,1,1
+asset9,variable,1,1,1,1,0,1
+asset10,variable,1,1,1,1,0,1
+asset11,variable,1,0,0,0,0,1

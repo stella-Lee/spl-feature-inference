@@ -19,6 +19,69 @@ The first milestone is to parse `input/model.xml` and generate:
 
 - `output/asset_ownership_matrix.csv`
 
+The generated CSV has these columns:
+
+```text
+assetId,type,Enterprise,HomeBasic,HomePremium,Professional,Starter,Ultimate
+```
+
+Ownership cells contain `1` when the product owns the asset and `0` otherwise.
+Ownership is derived from direct `<file owner="...">` children of each asset.
+
+## Model XML shape
+
+Milestone 1 reads products and asset-level ownership metadata. Asset file
+contents are deliberately not parsed yet.
+
+```xml
+<integrationModel>
+    <products>
+        <product id="enterprise" name="Enterprise"/>
+    </products>
+    <assets>
+        <asset id="src/example/App.java" type="java">
+            <file owner="Enterprise" path="\src\example\App.java"/>
+        </asset>
+    </assets>
+</integrationModel>
+```
+
+Product columns are generated from the `<products>` list in `model.xml`,
+preserving XML order. An ownership cell is `1` only when the asset contains at
+least one direct `<file>` element whose `owner` attribute equals that product
+column name.
+
+## Build and run
+
+Requirements:
+
+- Java 17
+- Maven 3.9 or newer
+
+Run the tests:
+
+```shell
+mvn test
+```
+
+Place the upstream integration model at `input/model.xml`, then run:
+
+```shell
+mvn compile exec:java
+```
+
+The program creates `output/asset_ownership_matrix.csv`.
+
+It also creates hierarchy evidence artifacts:
+
+- `output/asset_identity.csv`
+- `output/asset_hierarchy_candidates.csv`
+
+Hierarchy candidates are generated when a child asset's product set is a
+proper subset of a parent asset's product set. Filename and path similarity are
+used only as evidence for confidence, not as a standalone reason to create an
+edge.
+
 ## Scope
 
 This project does not implement product source integration.  
